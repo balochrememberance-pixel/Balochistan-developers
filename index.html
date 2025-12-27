@@ -2,9 +2,301 @@
 <html lang="ur">
 <head>
 <meta charset="UTF-8">
-<title>بلوچستان ویب سائٹ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بلوچستان کے ڈویژنز اور مسائل</title>
+
+<style>
+:root{
+  --bg:#f5f7fa;
+  --card:#ffffff;
+  --text:#222;
+  --accent:#1b4d3e;
+  --soft:#f7fbfa;
+}
+
+body.dark{
+  --bg:#0f172a;
+  --card:#111827;
+  --text:#e5e7eb;
+  --accent:#22c55e;
+  --soft:#1f2933;
+}
+
+body{
+  margin:0;
+  padding:20px;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq",serif;
+  direction:rtl;
+  transition:all .4s ease;
+}
+
+.container{max-width:900px;margin:auto;}
+
+h1{
+  text-align:center;
+  color:var(--accent);
+  margin-bottom:20px;
+}
+
+.toggle{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.toggle button{
+  padding:10px 18px;
+  border:none;
+  border-radius:20px;
+  background:var(--accent);
+  color:white;
+  font-size:14px;
+  cursor:pointer;
+}
+
+ul{list-style:none;padding:0;}
+
+.division{
+  background:var(--card);
+  margin-bottom:22px;
+  padding:22px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  border-right:6px solid var(--accent);
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .6s ease;
+}
+
+.division.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.title{
+  font-size:24px;
+  margin-bottom:12px;
+  color:var(--accent);
+}
+
+.read-btn{
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition:all .3s ease;
+}
+
+.read-btn:hover{
+  opacity:0.85;
+}
+
+.problem{
+  display: none;
+  background: var(--soft);
+  padding:16px;
+  border-radius:12px;
+  line-height:1.9;
+  font-size:17px;
+}
+
+.footer{
+  text-align:center;
+  margin-top:40px;
+  font-size:13px;
+  opacity:.7;
+}
+</style>
 </head>
+
 <body>
-<h1>ہیلو بلوچستان!</h1>
+
+<div class="container">
+
+<h1>بلوچستان کے ڈویژنز اور ان کے مسائل</h1>
+
+<div class="toggle">
+<button onclick="toggleMode()">🌙 / ☀️ موڈ تبدیل کریں</button>
+</div>
+
+<ul>
+
+<!-- کوئٹہ ڈویژن -->
+<li class="division">
+  <div class="title">کوئٹہ ڈویژن</div>
+
+  <button class="read-btn" onclick="toggleProblem(this)">اس ڈویژن کے مسائل پڑھیں</button>
+  <div class="problem">
+    پانی کی شدید قلت، زیرِ زمین پانی کی خطرناک حد تک کمی، بے ہنگم شہری پھیلاؤ،
+    غیر منصوبہ بند ہاؤسنگ، بڑھتی ہوئی بے روزگاری، ٹریفک اور ٹرانسپورٹ کا ناقص نظام،
+    سرکاری اسپتالوں میں سہولیات کی کمی، تعلیمی معیار کی گراوٹ، مہنگائی اور امن و امان کے مسائل۔
+  </div>
+
+  <button class="read-btn" onclick="toggleWomen(this)">عورتوں کے مسائل پڑھیں</button>
+  <div class="problem">
+    عورتوں کے مسائل: معاشرتی بگاڑ میں اضافہ، منشیات کے استعمال کا پھیلاؤ،
+    بلوچ روایات کے برخلاف خواتین کا نشے کی طرف جانا،
+    اخلاقی اقدار کی کمزوری، فحاشی اور غیر اخلاقی سرگرمیوں کا آغاز،
+    خاندانی نگرانی اور سماجی تحفظ کے نظام کا کمزور ہونا،
+    خواتین کی صحت، تعلیم اور ذہنی بحالی کے مؤثر پروگراموں کی کمی۔
+  </div>
+</li>
+
+<!-- قلات ڈویژن -->
+<li class="division">
+  <div class="title">قلات ڈویژن</div>
+
+  <button class="read-btn" onclick="toggleProblem(this)">اس ڈویژن کے مسائل پڑھیں</button>
+  <div class="problem">
+    طویل پسماندگی، ٹوٹی پھوٹی سڑکیں، دیہی علاقوں کا شہروں سے کٹاؤ،
+    اسکولوں اور کالجوں کی کمی، اساتذہ کی غیر حاضری، پینے کے صاف پانی کا شدید مسئلہ،
+    غربت، صحت مراکز میں عملے اور ادویات کی کمی۔
+  </div>
+
+  <button class="read-btn" onclick="toggleWomen(this)">عورتوں کے مسائل پڑھیں</button>
+  <div class="problem">
+    عورتوں کے مسائل: سماجی پابندیوں میں کمی، منشیات اور فحاشی کا آغاز،
+    خواتین کے لیے حفاظتی انتظامات کا فقدان، تعلیم اور صحت کی محدود سہولیات۔
+  </div>
+</li>
+
+<!-- مکران ڈویژن -->
+<li class="division">
+  <div class="title">مکران ڈویژن</div>
+
+  <button class="read-btn" onclick="toggleProblem(this)">اس ڈویژن کے مسائل پڑھیں</button>
+  <div class="problem">
+    پینے کے پانی کا مستقل بحران، خشک سالی، زراعت اور کھجور کی پیداوار کو نقصان،
+    ماہی گیروں کو بنیادی سہولیات نہ ملنا، بے روزگاری، صحت کے جدید اسپتالوں کی کمی،
+    ساحلی علاقوں میں ترقیاتی منصوبوں کا فقدان۔
+  </div>
+
+  <button class="read-btn" onclick="toggleWomen(this)">عورتوں کے مسائل پڑھیں</button>
+  <div class="problem">
+    عورتوں کے مسائل: خواتین کی تعلیم و روزگار کے مواقع محدود، منشیات کا بڑھتا ہوا رجحان،
+    اخلاقی اقدار کا زوال، حفاظت اور سماجی نگرانی کی کمی۔
+  </div>
+</li>
+
+<!-- نصیرآباد ڈویژن -->
+<li class="division">
+  <div class="title">نصیرآباد ڈویژن</div>
+
+  <button class="read-btn" onclick="toggleProblem(this)">اس ڈویژن کے مسائل پڑھیں</button>
+  <div class="problem">
+    زرعی پانی کی شدید قلت، نہری نظام کی خستہ حالت، جاگیردارانہ نظام کی وجہ سے عام کسان کی محرومی،
+    سیلابوں سے بار بار فصلوں اور گھروں کا نقصان، غربت، تعلیم اور صحت کی ناکافی سہولیات۔
+  </div>
+
+  <button class="read-btn" onclick="toggleWomen(this)">عورتوں کے مسائل پڑھیں</button>
+  <div class="problem">
+    عورتوں کے مسائل: خواتین کی سماجی و معاشرتی حالت کمزور، تعلیم و صحت کی کمی،
+    نشہ آور عادات میں اضافہ، فحاشی اور غیر محفوظ ماحول۔
+  </div>
+</li>
+
+<!-- سبی ڈویژن -->
+<li class="division">
+  <div class="title">سبی ڈویژن</div>
+
+  <button class="read-btn" onclick="toggleProblem(this)">اس ڈویژن کے مسائل پڑھیں</button>
+  <div class="problem">
+    شدید گرمی اور ہیٹ ویوز، بجلی کی طویل لوڈشیڈنگ، صنعتی ترقی کا فقدان،
+    نوجوانوں میں بے روزگاری، پرانا انفراسٹرکچر، سرکاری اسپتالوں میں سہولیات کی کمی، صاف پانی کے مسائل۔
+  </div>
+
+  <button class="read-btn" onclick="toggleWomen(this)">عورتوں کے مسائل پڑھیں</button>
+  <div class="problem">
+    عورتوں کے مسائل: سماجی پابندیوں میں کمی، نشے کا پھیلاؤ، غیر محفوظ ماحول،
+    تعلیم اور صحت کے محدود وسائل۔
+  </div>
+</li>
+
+<!-- ژوب ڈویژن -->
+<li class="division">
+  <div class="title">ژوب ڈویژن</div>
+
+  <button class="read-btn" onclick="toggleProblem(this)">اس ڈویژن کے مسائل پڑھیں</button>
+  <div class="problem">
+    پہاڑی اور دور افتادہ علاقے، سڑکوں اور ٹرانسپورٹ کی شدید کمی، اسکولوں کی قلت،
+    صحت مراکز کا فقدان، غربت، زراعت کے جدید ذرائع نہ ہونا، نوجوانوں کے لیے مواقع کی کمی۔
+  </div>
+
+  <button class="read-btn" onclick="toggleWomen(this)">عورتوں کے مسائل پڑھیں</button>
+  <div class="problem">
+    عورتوں کے مسائل: تعلیم و روزگار کے محدود مواقع، منشیات اور فحاشی میں اضافہ،
+    خواتین کی صحت و حفاظت کے لیے اقدامات کی کمی۔
+  </div>
+</li>
+
+<!-- رخشان ڈویژن -->
+<li class="division">
+  <div class="title">رخشان ڈویژن</div>
+
+  <button class="read-btn" onclick="toggleProblem(this)">اس ڈویژن کے مسائل پڑھیں</button>
+  <div class="problem">
+    انتہائی پسماندگی، صحرائی اور دشوار گزار علاقے، پانی کی شدید قلت،
+    روزگار کے مواقع نہ ہونا، تعلیمی اداروں کی کمی، صحت کی سہولیات کا نہ ہونا،
+    موبائل نیٹ ورک اور انٹرنیٹ کی کمزوری، بارڈر ایریا ہونے کے باوجود تجارتی سہولیات کا فقدان۔
+  </div>
+
+  <button class="read-btn" onclick="toggleWomen(this)">عورتوں کے مسائل پڑھیں</button>
+  <div class="problem">
+    عورتوں کے مسائل: خواتین کی تعلیم و روزگار کے مواقع محدود، اخلاقی اقدار میں کمی،
+    نشہ اور فحاشی کا بڑھتا ہوا رجحان، سماجی تحفظ اور حفاظتی نظام کمزور۔
+  </div>
+</li>
+
+</ul>
+
+<div class="footer">© بلوچستان آگاہی و ترقی</div>
+</div>
+
+<script>
+// Dark / Light Mode Toggle
+function toggleMode(){
+  document.body.classList.toggle("dark");
+}
+
+// مردوں کے مسائل
+function toggleProblem(btn){
+  const problem = btn.nextElementSibling;
+  if(problem.style.display === "block"){
+    problem.style.display = "none";
+    btn.innerText = "اس ڈویژن کے مسائل پڑھیں";
+  }else{
+    problem.style.display = "block";
+    btn.innerText = "بند کریں";
+  }
+}
+
+// عورتوں کے مسائل
+function toggleWomen(btn){
+  const problem = btn.nextElementSibling;
+  if(problem.style.display === "block"){
+    problem.style.display = "none";
+    btn.innerText = "عورتوں کے مسائل پڑھیں";
+  }else{
+    problem.style.display = "block";
+    btn.innerText = "بند کریں";
+  }
+}
+
+// Scroll Animation
+const cards=document.querySelectorAll(".division");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add("show");}
+  });
+},{threshold:.2});
+
+cards.forEach(c=>observer.observe(c));
+</script>
+
 </body>
 </html>
